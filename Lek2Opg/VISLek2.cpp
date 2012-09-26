@@ -40,8 +40,8 @@ int main(int argc, char **argv) {
 
 
   int i;
-  for(i=0; i < img.cols-1;i++)
-	for(int j = 0; j < img.rows-1;j++)
+  for(i=0; i < img.cols;i++)
+	for(int j = 0; j < img.rows;j++)
 	{
 		int newval = img.at<uchar>(i,j)+50;
 		newval = newval < 0 ? 0 : newval;

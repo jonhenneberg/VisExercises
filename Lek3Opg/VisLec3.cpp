@@ -39,7 +39,7 @@ bool Exercise1(string filename, Mat_<float>& returnmag, Mat_<float>& returnphase
 
 	imshow(filename, (Mat_<uchar>)image);
 
-	Mat_<Vec2f> imagedata, testdata;
+	Mat_<Vec2f> imagedata;
 	Mat planes[] = {Mat_<float>(image), Mat::zeros(image.size(), CV_32F)};
 
 	merge(planes,2,imagedata);
@@ -89,9 +89,9 @@ bool Exercise2(Mat_<float>& magnitude, Mat_<float>& phase) {
 
 	polarToCart(magnitude,phase,planes[0],planes[1],false);
 	merge(planes,2,imagedata);
-	dft(imagedata, imagedata, DFT_INVERSE);
-	//dft(imagedata, imagedata, DFT_INVERSE & DFT_SCALE & DFT_REAL_OUTPUT);
-
+	dft(imagedata, imagedata, DFT_INVERSE + DFT_SCALE);
+	//dft(imagedata, planes[0], DFT_INVERSE + DFT_SCALE + DFT_REAL_OUTPUT);
+	//cout<<"213\n";
 	split(imagedata,planes);
 	normalize(planes[0], planes[0], 0, 1, CV_MINMAX);
 
@@ -114,7 +114,7 @@ void Lec3() {
 
 int main(int argc, char **argv) {
 	system("cls");
-	cout<<"Starting\n";
+	cout<<"Starting...\n";
 
 	try
 	{
