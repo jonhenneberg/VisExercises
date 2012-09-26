@@ -90,6 +90,7 @@ bool Exercise2(Mat_<float>& magnitude, Mat_<float>& phase) {
 	polarToCart(magnitude,phase,planes[0],planes[1],false);
 	merge(planes,2,imagedata);
 	dft(imagedata, imagedata, DFT_INVERSE);
+	//dft(imagedata, imagedata, DFT_INVERSE & DFT_SCALE & DFT_REAL_OUTPUT);
 
 	split(imagedata,planes);
 	normalize(planes[0], planes[0], 0, 1, CV_MINMAX);
@@ -100,9 +101,9 @@ bool Exercise2(Mat_<float>& magnitude, Mat_<float>& phase) {
 }
 
 void Lec3() {
-	//Exercise1("lena_hair.bmp");
-	//Exercise1("lena_hat.bmp");
-	//Exercise1("lena_face.bmp");
+	Exercise1("lena_hair.bmp");
+	Exercise1("lena_hat.bmp");
+	Exercise1("lena_face.bmp");
 
 	Mat_<float> magdata , phasedata;
 	Exercise1("lena.bmp", magdata, phasedata);
