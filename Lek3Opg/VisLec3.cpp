@@ -96,6 +96,7 @@ bool Exercise2(Mat_<float>& magnitude, Mat_<float>& phase) {
 
 	imshow("Exercise2", planes[0]);
 
+	return true;
 }
 
 void Lec3() {
@@ -118,7 +119,7 @@ int main(int argc, char **argv) {
 	{
 	  Lec3();
 	  cv::waitKey();
-	} catch (Exception e) {
+	} catch (Exception & e) {
 		cout<<"Msg:"<<e.msg;
 	}
 
